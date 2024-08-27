@@ -1,28 +1,27 @@
 pipeline {
     agent any
     options {
-        skipDefaultCheckout()
-        cleanWs()
+        skipDefaultCheckout(true)
     }
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
         DOCKER_IMAGE = "elxandre240194/hello-world-app:${env.BUILD_ID}"
     }
     stages {
-        stage('Environment Information') {
+        stage('Clean Workspace') {
             steps {
-                sh 'uname -a'
-                sh 'env | sort'
-                sh 'which git'
-                sh 'git --version'
-                sh 'pwd'
-                sh 'ls -la'
+                cleanWs()
             }
         }
-        stage('Check Connectivity') {
+        stage('Check Environment') {
             steps {
-                sh 'ping -c 4 github.com'
-                sh 'curl -I https://github.com'
+                sh 'uname -a'
+                sh 'which git'
+                sh 'git --version'
+                sh 'id'
+                sh 'pwd'
+                sh 'ls -la'
+                sh 'env | sort'
             }
         }
         stage('Checkout') {
@@ -35,8 +34,6 @@ pipeline {
                         sh 'git checkout -B main origin/main'
                     } catch (Exception e) {
                         echo "Git operations failed. Error: ${e.message}"
-                        sh 'ls -la'
-                        sh 'pwd'
                         error "Failed to checkout repository"
                     }
                 }
@@ -47,6 +44,12 @@ pipeline {
                 sh 'ls -la'
                 sh 'git status'
                 sh 'git remote -v'
+            }
+        }
+        stage('Check Connectivity') {
+            steps {
+                sh 'ping -c 4 github.com'
+                sh 'curl -I https://github.com'
             }
         }
         stage('Check Docker') {
