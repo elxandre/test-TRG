@@ -48,14 +48,13 @@ pipeline {
         }
         stage('Check Connectivity') {
             steps {
-                sh 'ping -c 4 github.com'
                 sh 'curl -I https://github.com'
             }
         }
         stage('Check Docker') {
             steps {
-                sh 'docker info'
                 sh 'docker version'
+                sh 'docker info'
             }
         }
         stage('Build Docker Image') {
