@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    options {
+        skipDefaultCheckout()
+        cleanWs()
+    }
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
         DOCKER_IMAGE = "elxandre240194/hello-world-app:${env.BUILD_ID}"
@@ -9,14 +13,10 @@ pipeline {
             steps {
                 sh 'uname -a'
                 sh 'env | sort'
-            }
-        }
-        stage('Debug and Prepare Workspace') {
-            steps {
+                sh 'which git'
+                sh 'git --version'
                 sh 'pwd'
                 sh 'ls -la'
-                sh 'git --version'
-                sh 'rm -rf .git'
             }
         }
         stage('Check Connectivity') {
@@ -29,11 +29,15 @@ pipeline {
             steps {
                 script {
                     try {
-                        git branch: 'main', url: 'https://github.com/elxandre/test-TRG.git'
+                        sh 'git init'
+                        sh 'git remote add origin https://github.com/elxandre/test-TRG.git'
+                        sh 'git fetch --all'
+                        sh 'git checkout -B main origin/main'
                     } catch (Exception e) {
-                        echo "Git checkout failed. Trying alternative method."
-                        sh 'git clone https://github.com/elxandre/test-TRG.git .'
-                        sh 'git checkout main'
+                        echo "Git operations failed. Error: ${e.message}"
+                        sh 'ls -la'
+                        sh 'pwd'
+                        error "Failed to checkout repository"
                     }
                 }
             }
@@ -93,6 +97,7 @@ pipeline {
         always {
             echo 'Printing workspace contents after job execution:'
             sh 'ls -la'
+            cleanWs()
         }
         success {
             echo 'Pipeline succeeded!'
