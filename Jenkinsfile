@@ -73,7 +73,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        docker.withRegistry('https://index.docker.io/v1/', DOCKERHUB_CREDENTIALS) {
+                        docker.withRegistry('https://index.docker.io/v1/', 'dockerhub-credentials') {
                             docker.image(DOCKER_IMAGE).push()
                         }
                     } catch (Exception e) {
