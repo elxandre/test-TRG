@@ -1,0 +1,486 @@
+Started by GitHub push by elxandre
+Checking out git https://github.com/elxandre/test-TRG.git into /var/jenkins_home/workspace/GitHub-Pipeline-Build-TRG@script/e298862b967a8fbe9a787042f37d5da4503e2587e218a41a4867e4313a0a8679 to read Jenkinsfile
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential dockerhub-credentials
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/GitHub-Pipeline-Build-TRG@script/e298862b967a8fbe9a787042f37d5da4503e2587e218a41a4867e4313a0a8679/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/elxandre/test-TRG.git # timeout=10
+Fetching upstream changes from https://github.com/elxandre/test-TRG.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+using GIT_ASKPASS to set credentials Docker Hub credentials for pushing images
+ > git fetch --tags --force --progress -- https://github.com/elxandre/test-TRG.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision ba4ae547fa5432a6201feb50223060464edf1d11 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f ba4ae547fa5432a6201feb50223060464edf1d11 # timeout=10
+Commit message: "Create ingress.yaml"
+ > git rev-list --no-walk 026528628d4753b1c9c36ee36f36d655a03a49e1 # timeout=10
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Still waiting to schedule task
+Waiting for next available executor
+Running on Jenkins in /var/jenkins_home/workspace/GitHub-Pipeline-Build-TRG@2
+[Pipeline] {
+[Pipeline] withCredentials
+Masking supported pattern matches of $DOCKERHUB_CREDENTIALS or $DOCKERHUB_CREDENTIALS_PSW
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Clean Workspace)
+[Pipeline] cleanWs
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] done
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Check Environment)
+[Pipeline] sh
++ uname -a
+Linux d454cf711d0d 5.15.153.1-microsoft-standard-WSL2 #1 SMP Fri Mar 29 23:14:13 UTC 2024 x86_64 GNU/Linux
+[Pipeline] sh
++ which git
+/usr/bin/git
+[Pipeline] sh
++ git --version
+git version 2.39.2
+[Pipeline] sh
++ id
+uid=0(root) gid=0(root) groups=0(root)
+[Pipeline] sh
++ pwd
+/var/jenkins_home/workspace/GitHub-Pipeline-Build-TRG@2
+[Pipeline] sh
++ ls -la
+total 8
+drwxr-xr-x 2 root    root    4096 Aug 27 19:28 .
+drwxr-xr-x 8 jenkins jenkins 4096 Aug 27 19:28 ..
+[Pipeline] sh
++ sort
++ env
+BUILD_DISPLAY_NAME=#28
+BUILD_ID=28
+BUILD_NUMBER=28
+BUILD_TAG=jenkins-GitHub-Pipeline-Build-TRG-28
+BUILD_URL=https://7aff-79-118-82-171.ngrok-free.app/job/GitHub-Pipeline-Build-TRG/28/
+CI=true
+COPY_REFERENCE_FILE_LOG=/var/jenkins_home/copy_reference_file.log
+DOCKERHUB_CREDENTIALS=****
+DOCKERHUB_CREDENTIALS_PSW=****
+DOCKERHUB_CREDENTIALS_USR=elxandre240194
+DOCKER_IMAGE=elxandre240194/hello-world-app:28
+EXECUTOR_NUMBER=1
+HOME=/root
+HOSTNAME=d454cf711d0d
+HUDSON_COOKIE=ec2b4053-7815-4542-93b8-b7ec43b75f5b
+HUDSON_HOME=/var/jenkins_home
+HUDSON_SERVER_COOKIE=c3b504247cc516fc
+HUDSON_URL=https://7aff-79-118-82-171.ngrok-free.app/
+JAVA_HOME=/opt/java/openjdk
+JENKINS_HOME=/var/jenkins_home
+JENKINS_INCREMENTALS_REPO_MIRROR=https://repo.jenkins-ci.org/incrementals
+JENKINS_NODE_COOKIE=c172b560-1349-4862-b0a7-f9fb16b4d364
+JENKINS_SERVER_COOKIE=durable-6cdc5b7f0b9f6aef4babc3be689ed5f6ca93f45a270ffa9317b7d144b0c6b3a9
+JENKINS_SLAVE_AGENT_PORT=50000
+JENKINS_UC=https://updates.jenkins.io
+JENKINS_UC_EXPERIMENTAL=https://updates.jenkins.io/experimental
+JENKINS_URL=https://7aff-79-118-82-171.ngrok-free.app/
+JENKINS_VERSION=2.462.1
+JOB_BASE_NAME=GitHub-Pipeline-Build-TRG
+JOB_DISPLAY_URL=https://7aff-79-118-82-171.ngrok-free.app/job/GitHub-Pipeline-Build-TRG/display/redirect
+JOB_NAME=GitHub-Pipeline-Build-TRG
+JOB_URL=https://7aff-79-118-82-171.ngrok-free.app/job/GitHub-Pipeline-Build-TRG/
+LANG=C.UTF-8
+NODE_LABELS=built-in
+NODE_NAME=built-in
+PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+PWD=/var/jenkins_home/workspace/GitHub-Pipeline-Build-TRG@2
+REF=/usr/share/jenkins/ref
+RUN_ARTIFACTS_DISPLAY_URL=https://7aff-79-118-82-171.ngrok-free.app/job/GitHub-Pipeline-Build-TRG/28/display/redirect?page=artifacts
+RUN_CHANGES_DISPLAY_URL=https://7aff-79-118-82-171.ngrok-free.app/job/GitHub-Pipeline-Build-TRG/28/display/redirect?page=changes
+RUN_DISPLAY_URL=https://7aff-79-118-82-171.ngrok-free.app/job/GitHub-Pipeline-Build-TRG/28/display/redirect
+RUN_TESTS_DISPLAY_URL=https://7aff-79-118-82-171.ngrok-free.app/job/GitHub-Pipeline-Build-TRG/28/display/redirect?page=tests
+SHLVL=0
+STAGE_NAME=Check Environment
+WORKSPACE=/var/jenkins_home/workspace/GitHub-Pipeline-Build-TRG@2
+WORKSPACE_TMP=/var/jenkins_home/workspace/GitHub-Pipeline-Build-TRG@2@tmp
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
++ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint: 	git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint: 	git branch -m <name>
+Initialized empty Git repository in /var/jenkins_home/workspace/GitHub-Pipeline-Build-TRG@2/.git/
+[Pipeline] sh
++ git remote add origin https://github.com/elxandre/test-TRG.git
+[Pipeline] sh
++ git fetch --all
+From https://github.com/elxandre/test-TRG
+ * [new branch]      main       -> origin/main
+[Pipeline] sh
++ git checkout -B main origin/main
+Switched to a new branch 'main'
+branch 'main' set up to track 'origin/main'.
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Verify Checkout)
+[Pipeline] sh
++ ls -la
+total 32
+drwxr-xr-x 4 root    root    4096 Aug 27 19:29 .
+drwxr-xr-x 8 jenkins jenkins 4096 Aug 27 19:28 ..
+drwxr-xr-x 8 root    root    4096 Aug 27 19:29 .git
+-rw-r--r-- 1 root    root     458 Aug 27 19:29 Dockerfile
+-rw-r--r-- 1 root    root    3259 Aug 27 19:29 Jenkinsfile
+-rw-r--r-- 1 root    root      30 Aug 27 19:29 README.md
+-rw-r--r-- 1 root    root     169 Aug 27 19:29 hello_world.py
+drwxr-xr-x 2 root    root    4096 Aug 27 19:29 k8s
+[Pipeline] sh
++ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+[Pipeline] sh
++ git remote -v
+origin	https://github.com/elxandre/test-TRG.git (fetch)
+origin	https://github.com/elxandre/test-TRG.git (push)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Check Connectivity)
+[Pipeline] sh
++ curl -I https://github.com
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0HTTP/2 200 
+server: GitHub.com
+date: Tue, 27 Aug 2024 19:30:04 GMT
+content-type: text/html; charset=utf-8
+vary: X-PJAX, X-PJAX-Container, Turbo-Visit, Turbo-Frame, Accept-Language, Accept-Encoding, Accept, X-Requested-With
+content-language: en-US
+etag: W/"e03f57fd9470b63866850f270b1ceca7"
+cache-control: max-age=0, private, must-revalidate
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: deny
+x-content-type-options: nosniff
+x-xss-protection: 0
+referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+content-security-policy: default-src 'none'; base-uri 'self'; child-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/; connect-src 'self' uploads.github.com www.githubstatus.com collector.github.com raw.githubusercontent.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com *.rel.tunnels.api.visualstudio.com wss://*.rel.tunnels.api.visualstudio.com api.githubcopilot.com objects-origin.githubusercontent.com copilot-proxy.githubusercontent.com/v1/engines/github-completion/completions proxy.enterprise.githubcopilot.com/v1/engines/github-completion/completions *.actions.githubusercontent.com wss://*.actions.githubusercontent.com productionresultssa0.blob.core.windows.net/ productionresultssa1.blob.core.windows.net/ productionresultssa2.blob.core.windows.net/ productionresultssa3.blob.core.windows.net/ productionresultssa4.blob.core.windows.net/ productionresultssa5.blob.core.windows.net/ productionresultssa6.blob.core.windows.net/ productionresultssa7.blob.core.windows.net/ productionresultssa8.blob.core.windows.net/ productionresultssa9.blob.core.windows.net/ productionresultssa10.blob.core.windows.net/ productionresultssa11.blob.core.windows.net/ productionresultssa12.blob.core.windows.net/ productionresultssa13.blob.core.windows.net/ productionresultssa14.blob.core.windows.net/ productionresultssa15.blob.core.windows.net/ productionresultssa16.blob.core.windows.net/ productionresultssa17.blob.core.windows.net/ productionresultssa18.blob.core.windows.net/ productionresultssa19.blob.core.windows.net/ github-production-repository-image-32fea6.s3.amazonaws.com github-production-release-asset-2e65be.s3.amazonaws.com insights.github.com wss://alive.github.com github.githubassets.com edge.fullstory.com rs.fullstory.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com copilot-workspace.githubnext.com objects-origin.githubusercontent.com; frame-ancestors 'none'; frame-src viewscreen.githubusercontent.com notebooks.githubusercontent.com www.youtube-nocookie.com; img-src 'self' data: blob: github.githubassets.com media.githubusercontent.com camo.githubusercontent.com identicons.github.com avatars.githubusercontent.com github-cloud.s3.amazonaws.com objects.githubusercontent.com secured-user-images.githubusercontent.com/ user-images.githubusercontent.com/ private-user-images.githubusercontent.com opengraph.githubassets.com github-production-user-asset-6210df.s3.amazonaws.com customer-stories-feed.github.com spotlights-feed.github.com objects-origin.githubusercontent.com *.githubusercontent.com; manifest-src 'self'; media-src github.com user-images.githubusercontent.com/ secured-user-images.githubusercontent.com/ private-user-images.githubusercontent.com github-production-user-asset-6210df.s3.amazonaws.com gist.github.com github.githubassets.com; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; upgrade-insecure-requests; worker-src github.com/assets-cdn/worker/ github.com/webpack/ github.com/assets/ gist.github.com/assets-cdn/worker/
+set-cookie: _gh_sess=lEw094%2FvG7mLJbCLe5GLkwAOCwx%2FxS93ZoJ0Te33OFq0%2FaUzsgPxCUQWEnTA9roR4%2FSc8JF0ZowvetsaRJ0at4rVJEkyET0E89vIpQzE%2FipxVphRuetejdtq8437PqTxP47JYzI2WeYZPTMoFX514xvPp1q%2B5zjRMymYXwQkCq3N0e8W7yvE%2FkCa3ByxcvRlRl1HLWOhVMoZli3MCHLtOq4
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+9N%2F5FQIsNf3Gs0ppuvAtjadxN92EjNzGdsVdg%2ByaJ9zNce8cPbYNFZddeV05agg%3D%3D--JFrN9SOinwBrku9d--FJX70kyoX9BJpgcHK7wm6Q%3D%3D; Path=/; HttpOnly; Secure; SameSite=Lax
+set-cookie: _octo=GH1.1.528026014.1724787007; Path=/; Domain=github.com; Expires=Wed, 27 Aug 2025 19:30:07 GMT; Secure; SameSite=Lax
+set-cookie: logged_in=no; Path=/; Domain=github.com; Expires=Wed, 27 Aug 2025 19:30:07 GMT; HttpOnly; Secure; SameSite=Lax
+accept-ranges: bytes
+x-github-request-id: F194:A12AD:4370C9:44C496:66CE293F
+
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Check Docker)
+[Pipeline] sh
++ docker version
+Client: Docker Engine - Community
+ Version:           27.1.2
+ API version:       1.46
+ Go version:        go1.21.13
+ Git commit:        d01f264
+ Built:             Mon Aug 12 11:50:58 2024
+ OS/Arch:           linux/amd64
+ Context:           default
+
+Server: Docker Desktop 4.33.1 (161083)
+ Engine:
+  Version:          27.1.1
+  API version:      1.46 (minimum version 1.24)
+  Go version:       go1.21.12
+  Git commit:       cc13f95
+  Built:            Tue Jul 23 19:57:19 2024
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          1.7.19
+  GitCommit:        2bf793ef6dc9a18e00cb12efb64355c2c9d5eb41
+ runc:
+  Version:          1.7.19
+  GitCommit:        v1.1.13-0-g58aa920
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+[Pipeline] sh
++ docker info
+Client: Docker Engine - Community
+ Version:    27.1.2
+ Context:    default
+ Debug Mode: false
+ Plugins:
+  buildx: Docker Buildx (Docker Inc.)
+    Version:  v0.16.2
+    Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+  compose: Docker Compose (Docker Inc.)
+    Version:  v2.29.1
+    Path:     /usr/libexec/docker/cli-plugins/docker-compose
+
+Server:
+ Containers: 2
+  Running: 2
+  Paused: 0
+  Stopped: 0
+ Images: 5
+ Server Version: 27.1.1
+ Storage Driver: overlay2
+  Backing Filesystem: extfs
+  Supports d_type: true
+  Using metacopy: false
+  Native Overlay Diff: true
+  userxattr: false
+ Logging Driver: json-file
+ Cgroup Driver: cgroupfs
+ Cgroup Version: 1
+ Plugins:
+  Volume: local
+  Network: bridge host ipvlan macvlan null overlay
+  Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+ Swarm: inactive
+ Runtimes: runc io.containerd.runc.v2
+ Default Runtime: runc
+ Init Binary: docker-init
+ containerd version: 2bf793ef6dc9a18e00cb12efb64355c2c9d5eb41
+ runc version: v1.1.13-0-g58aa920
+ init version: de40ad0
+ Security Options:
+  seccomp
+   Profile: unconfined
+ Kernel Version: 5.15.153.1-microsoft-standard-WSL2
+ Operating System: Docker Desktop
+ OSType: linux
+ Architecture: x86_64
+ CPUs: 4
+ Total Memory: 3.782GiB
+ Name: docker-desktop
+ ID: 30675567-2cca-47b9-ac61-52056801e3a2
+ Docker Root Dir: /var/lib/docker
+ Debug Mode: false
+ HTTP Proxy: http.docker.internal:3128
+ HTTPS Proxy: http.docker.internal:3128
+ No Proxy: hubproxy.docker.internal
+ Labels:
+  com.docker.desktop.address=npipe://\\.\pipe\docker_cli
+ Experimental: false
+ Insecure Registries:
+  hubproxy.docker.internal:5555
+  127.0.0.0/8
+ Live Restore Enabled: false
+
+WARNING: No blkio throttle.read_bps_device support
+WARNING: No blkio throttle.write_bps_device support
+WARNING: No blkio throttle.read_iops_device support
+WARNING: No blkio throttle.write_iops_device support
+WARNING: daemon is not using the default seccomp profile
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Docker Image)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker build -t elxandre240194/hello-world-app:28 .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 497B 0.0s done
+#1 DONE 3.6s
+
+#2 [internal] load metadata for docker.io/library/python:3.8-slim
+#2 DONE 6.6s
+
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B done
+#3 DONE 2.8s
+
+#4 [1/4] FROM docker.io/library/python:3.8-slim@sha256:f8b4609a66cdaa133fa57e2ca8e2f03de2ebb44ffefb4c0b8b2de782aefca4a1
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 66.83kB 0.3s done
+#5 DONE 2.6s
+
+#6 [2/4] WORKDIR /app
+#6 CACHED
+
+#7 [3/4] COPY . /app
+#7 DONE 6.2s
+
+#8 [4/4] RUN pip install --no-cache-dir flask
+#8 124.9 Collecting flask
+#8 125.7   Downloading flask-3.0.3-py3-none-any.whl (101 kB)
+#8 125.7      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 101.7/101.7 kB 1.7 MB/s eta 0:00:00
+#8 127.4 Collecting Werkzeug>=3.0.0
+#8 127.6   Downloading werkzeug-3.0.4-py3-none-any.whl (227 kB)
+#8 127.8      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 227.6/227.6 kB 1.4 MB/s eta 0:00:00
+#8 128.4 Collecting Jinja2>=3.1.2
+#8 128.4   Downloading jinja2-3.1.4-py3-none-any.whl (133 kB)
+#8 128.4      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.3/133.3 kB 14.9 MB/s eta 0:00:00
+#8 128.9 Collecting importlib-metadata>=3.6.0
+#8 129.0   Downloading importlib_metadata-8.4.0-py3-none-any.whl (26 kB)
+#8 130.7 Collecting itsdangerous>=2.1.2
+#8 130.9   Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#8 131.2 Collecting blinker>=1.6.2
+#8 131.3   Downloading blinker-1.8.2-py3-none-any.whl (9.5 kB)
+#8 131.5 Collecting click>=8.1.3
+#8 131.5   Downloading click-8.1.7-py3-none-any.whl (97 kB)
+#8 131.7      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 97.9/97.9 kB 681.1 kB/s eta 0:00:00
+#8 132.1 Collecting zipp>=0.5
+#8 132.2   Downloading zipp-3.20.1-py3-none-any.whl (9.0 kB)
+#8 135.0 Collecting MarkupSafe>=2.0
+#8 135.1   Downloading MarkupSafe-2.1.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (26 kB)
+#8 135.6 Installing collected packages: zipp, MarkupSafe, itsdangerous, click, blinker, Werkzeug, Jinja2, importlib-metadata, flask
+#8 147.3 Successfully installed Jinja2-3.1.4 MarkupSafe-2.1.5 Werkzeug-3.0.4 blinker-1.8.2 click-8.1.7 flask-3.0.3 importlib-metadata-8.4.0 itsdangerous-2.2.0 zipp-3.20.1
+#8 147.3 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#8 147.6 
+#8 147.6 [notice] A new release of pip is available: 23.0.1 -> 24.2
+#8 147.6 [notice] To update, run: pip install --upgrade pip
+#8 DONE 150.1s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 5.7s done
+#9 writing image sha256:8986d940ea163a6f591ce87a53365a78b9facaadac0df18803fa6d7413704cd3
+#9 writing image sha256:8986d940ea163a6f591ce87a53365a78b9facaadac0df18803fa6d7413704cd3 0.2s done
+#9 naming to docker.io/elxandre240194/hello-world-app:28
+#9 naming to docker.io/elxandre240194/hello-world-app:28 0.4s done
+#9 DONE 8.1s
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Push Docker Image to Docker Hub)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withDockerRegistry
+$ docker login -u elxandre240194 -p ******** https://index.docker.io/v1/
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /var/jenkins_home/workspace/GitHub-Pipeline-Build-TRG@2@tmp/bf572b42-6d0c-4cbc-822e-03b29fa17c85/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credential-stores
+
+Login Succeeded
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker tag elxandre240194/hello-world-app:28 index.docker.io/elxandre240194/hello-world-app:28
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] isUnix
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] sh
++ docker push index.docker.io/elxandre240194/hello-world-app:28
+The push refers to repository [docker.io/elxandre240194/hello-world-app]
+6b8720dd076a: Preparing
+4e0480fa567f: Preparing
+29a783b6ae59: Preparing
+ea3ca52555d9: Preparing
+c051c8ddf0e4: Preparing
+3fd23da07c85: Preparing
+d459f4cb7e83: Preparing
+9853575bc4f9: Preparing
+3fd23da07c85: Waiting
+d459f4cb7e83: Waiting
+9853575bc4f9: Waiting
+29a783b6ae59: Layer already exists
+ea3ca52555d9: Layer already exists
+c051c8ddf0e4: Layer already exists
+9853575bc4f9: Layer already exists
+3fd23da07c85: Layer already exists
+d459f4cb7e83: Layer already exists
+4e0480fa567f: Pushed
+6b8720dd076a: Pushed
+28: digest: sha256:c5ed15b76094d80c5367ca7d749ae8a346f7ba82d84681437c8eabc235c9ccc4 size: 1996
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withDockerRegistry
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Cleanup)
+[Pipeline] script
+[Pipeline] {
+Scripts not permitted to use method groovy.lang.GroovyObject invokeMethod java.lang.String java.lang.Object (org.jenkinsci.plugins.docker.workflow.Docker$Image remove). Administrators can decide whether to approve or reject this signature.
+[Pipeline] echo
+Cleanup failed. Error: Scripts not permitted to use method groovy.lang.GroovyObject invokeMethod java.lang.String java.lang.Object (org.jenkinsci.plugins.docker.workflow.Docker$Image remove)
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Printing workspace contents after job execution:
+[Pipeline] sh
++ ls -la
+total 32
+drwxr-xr-x 4 root    root    4096 Aug 27 19:29 .
+drwxr-xr-x 8 jenkins jenkins 4096 Aug 27 19:28 ..
+drwxr-xr-x 8 root    root    4096 Aug 27 19:29 .git
+-rw-r--r-- 1 root    root     458 Aug 27 19:29 Dockerfile
+-rw-r--r-- 1 root    root    3259 Aug 27 19:29 Jenkinsfile
+-rw-r--r-- 1 root    root      30 Aug 27 19:29 README.md
+-rw-r--r-- 1 root    root     169 Aug 27 19:29 hello_world.py
+drwxr-xr-x 2 root    root    4096 Aug 27 19:29 k8s
+[Pipeline] cleanWs
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] done
+[Pipeline] echo
+Pipeline succeeded!
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
