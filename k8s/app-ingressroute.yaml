@@ -1,0 +1,31 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: hello-world-route
+  namespace: default
+  annotations:
+    cert-manager.io/cluster-issuer: "selfsigned-issuer"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+  - match: Host(`hello-world.local`)
+    kind: Rule
+    services:
+    - name: hello-world-service
+      port: 80
+  tls:
+    secretName: hello-world-tls
+
+---
+
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: ip-whitelist
+  namespace: default
+spec:
+  ipWhiteList:
+    sourceRange:
+      - 192.168.1.0/24  # Replace with your allowed IP range
+      - 10.0.0.0/8      # Add more ranges as needed

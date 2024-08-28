@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: qa-argocd-role
+  namespace: argocd
+rules:
+- apiGroups: ["argoproj.io"]
+  resources: ["applications"]
+  verbs: ["get", "list", "watch", "update", "patch"]
+  resourceNames: ["staging-app"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: qa-argocd-rolebinding
+  namespace: argocd
+subjects:
+- kind: Group
+  name: qa
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: qa-argocd-role
+  apiGroup: rbac.authorization.k8s.io
