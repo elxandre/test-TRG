@@ -83,6 +83,35 @@ pipeline {
                 }
             }
         }
+         stage('Run Tests in Staging') {
+            steps {
+                script {
+                    try {
+                        // Deploy to staging
+                        sh "kubectl apply -f k8s/staging -n staging"
+                        
+                        // Run tests
+                        sh "kubectl run test-pod -n staging --image=${DOCKER_IMAGE} --command -- ./run_tests.sh"
+                        
+                        // Wait for tests to complete
+                        sh "kubectl wait --for=condition=complete job/test-pod -n staging --timeout=300s"
+                        
+                        // Collect results
+                        sh "kubectl cp staging/test-pod:/test-results ./test-results"
+                        
+                        // Publish results to Jenkins
+                        junit '**/test-results/*.xml'
+                    } catch (Exception e) {
+                        echo "Staging tests failed. Error: ${e.message}"
+                        error "Failed to run staging tests"
+                    } finally {
+                        // Cleanup staging environment
+                        sh "kubectl delete -f k8s/staging -n staging"
+                        sh "kubectl delete pod test-pod -n staging"
+                    }
+                }
+            }
+        }
         stage('Cleanup') {
             steps {
                 script {
