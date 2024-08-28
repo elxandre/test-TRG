@@ -67,11 +67,11 @@ This project implements a comprehensive CI/CD pipeline for a Python Flask applic
 
 ## Challenges Faced and Solutions
 
-During the implementation, we encountered issues with the Jenkins pipeline, specifically:
+During the implementation, I encountered issues with the Jenkins pipeline, specifically:
 1. The container started but didn't run the expected command.
 2. There was an error related to the ENTRYPOINT of the Docker image.
 
-To resolve these issues, we planned to:
+To resolve these issues, I planned to:
 - Modify the Dockerfile to ensure the ENTRYPOINT is correctly set and compatible with our pipeline.
 - Adjust the Jenkins pipeline to use the Kubernetes CLI Plugin instead of relying on a separate kubectl container.
 - Implement proper error handling and logging in the pipeline for better diagnostics.
