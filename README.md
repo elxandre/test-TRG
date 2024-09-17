@@ -1,4 +1,4 @@
-# DevOps Assessment Solution
+# DevOps project
 
 ## Project Overview
 
